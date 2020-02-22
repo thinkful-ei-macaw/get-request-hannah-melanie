@@ -10,19 +10,17 @@ function getDogImage() {
 
 function handleUserInput() {
   return $('.user-input').val(); 
-  
-  
 }
 
-
-function getImageIndex() {
-  let newArray= (${responseJson.message}).map  
-}
 function displayResults(responseJson) {
   console.log(responseJson);
+  let imageString='';
+  for (let i=0;i<responseJson.message.length;i++){
+    imageString += `<img src="${responseJson.message[i]}" class="results-img">`;
+  }
   //replace the existing image with the new one
   $('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
+    imageString
   );
   //display the results section
   $('.results').removeClass('hidden');
